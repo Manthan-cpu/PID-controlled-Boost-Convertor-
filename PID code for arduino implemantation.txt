@@ -1,0 +1,47 @@
+double Setpoint, Input, Output;
+double Kp = 0.1, Ki = 2.0, Kd = 0.01; 
+double prevError = 0;
+double integral = 0;
+unsigned long lastTime = 0;
+ double targetVoltage = 12.5;
+void setup() {
+  Serial.begin(9600);
+  pinMode(3, OUTPUT); 
+  TCCR2A = _BV(COM2B1) | _BV(WGM20);
+  TCCR2B = _BV(CS20); 
+  OCR2B = 0;     
+  Setpoint = targetVoltage;
+}
+void loop() {
+  double voltage = (analogRead(A0) * 55.0) / 1023.0; 
+  Input = voltage; 
+ unsigned long currentTime = millis();
+  double dt = (double)(currentTime - lastTime);
+  if (dt >= 10) { 
+    double error = Setpoint - Input; 
+    integral += error * (dt / 1000.0);
+    double derivative = (error - prevError) / (dt/ 1000.0);
+    Output = (Kp * error) + (Ki * integral) + (Kd * derivative);
+    Output = constrain(Output, 0, 255);
+    if (voltage > targetVoltage) {
+     // OCR2B = 0; 
+    } else {
+      OCR2B = Output; 
+    }
+    prevError = error;
+    lastTime = currentTime;
+  }
+
+
+  Serial.print("Setpoint: ");
+  Serial.print(Setpoint); 
+  Serial.print(" V\tVoltage: ");
+  Serial.print(voltage, 2); 
+  Serial.print(" V\tDuty Cycle: ");
+  Serial.println((int)Output / 255.0);
+
+
+
+       delay(10); 
+}
+

@@ -1,0 +1,79 @@
+<circuit version="1.1.0-SR1" rev="2005" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="Mosfet" CircId="Mosfet-1" mainComp="false" Show_id="false" Show_Val="false" Pos="-28,-160" rotation="0" hflip="1" vflip="1" label="Mosfet-1" idLabPos="18,0" labelrot="0" valLabPos="-16,20" valLabRot="0" P_Channel="false" Depletion="false" RDSon="1 Ω" Threshold="3 V" />
+
+<item itemtype="Inductor" CircId="Inductor-2" mainComp="false" ShowProp="Inductance" Show_id="false" Show_Val="true" Pos="-124,-216" rotation="0" hflip="1" vflip="1" label="Inductor-2" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Inductance="1 mH" Resistance="1e-12 Ω" InitVolt="0 A" ReaStep="0 ns" />
+
+<item itemtype="Capacitor" CircId="Capacitor-3" mainComp="false" ShowProp="Capacitance" Show_id="false" Show_Val="true" Pos="116,-120" rotation="90" hflip="1" vflip="1" label="Capacitor-3" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Capacitance="22 µF" Resistance="1e-12 Ω" InitVolt="0 V" ReaStep="0 ns" />
+
+<item itemtype="Resistor" CircId="Resistor-4" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="212,-196" rotation="90" hflip="1" vflip="1" label="Resistor-4" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Resistance="100 Ω" />
+
+<item itemtype="Resistor" CircId="Resistor-6" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="212,-92" rotation="90" hflip="1" vflip="1" label="Resistor-6" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Resistance="10 Ω" />
+
+<item itemtype="Battery" CircId="Battery-7" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="-192,-140" rotation="90" hflip="1" vflip="1" label="Battery-7" idLabPos="-18,-22" labelrot="0" valLabPos="-10,10" valLabRot="0" Voltage="7.5 V" Resistance="1e-11 mΩ" />
+
+<item itemtype="Diode" CircId="Diode-8" mainComp="false" Show_id="false" Show_Val="false" Pos="44,-216" rotation="0" hflip="1" vflip="1" label="Diode-8" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Model="Diode Default" Threshold="0.634767 V" MaxCurrent="1 A" Resistance="0.05 Ω" BrkDownV="0 V" SatCurrent="171.435 nA" EmCoef="2" />
+
+<item itemtype="Subcircuit" CircId="Uno-9" mainComp="false" Show_id="true" Show_Val="false" Pos="-128,108" rotation="0" hflip="1" vflip="1" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
+<mainCompProps MainCompId="mega328-109" Frequency="16 MHz" Program="../../AppData/Local/Temp/arduino/sketches/A98CA352077E1701F40DA8B516116BA0/sketch_jan13a.ino.hex" Auto_Load="true" saveEepr="true" MainMcu="true" SerialMon="-1" />
+</item>
+
+<item itemtype="Voltimeter" CircId="Voltimeter-19" mainComp="false" Show_id="false" Show_Val="false" Pos="256,-280" rotation="0" hflip="1" vflip="1" label="Voltimeter-19" idLabPos="-24,-40" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Node" CircId="Node-12" mainComp="false" Pos="-20,-216" />
+
+<item itemtype="Node" CircId="Node-13" mainComp="false" Pos="-20,-56" />
+
+<item itemtype="Node" CircId="Node-14" mainComp="false" Pos="116,-216" />
+
+<item itemtype="Node" CircId="Node-15" mainComp="false" Pos="116,-56" />
+
+<item itemtype="Node" CircId="Node-16" mainComp="false" Pos="-192,-56" />
+
+<item itemtype="Node" CircId="Node-20" mainComp="false" Pos="200,-216" />
+
+<item itemtype="Node" CircId="Node-26" mainComp="false" Pos="212,-152" />
+
+<item itemtype="Connector" uid="Connector-2" startpinid="Inductor-2-lPin" endpinid="Battery-7-lPin" pointList="-140,-216,-192,-216,-192,-156" />
+
+<item itemtype="Connector" uid="Connector-10" startpinid="Node-12-1" endpinid="Diode-8-lPin" pointList="-20,-216,28,-216" />
+
+<item itemtype="Connector" uid="Connector-11" startpinid="Inductor-2-rPin" endpinid="Node-12-0" pointList="-108,-216,-20,-216" />
+
+<item itemtype="Connector" uid="Connector-12" startpinid="Node-12-2" endpinid="Mosfet-1-Dren" pointList="-20,-216,-20,-176" />
+
+<item itemtype="Connector" uid="Connector-15" startpinid="Mosfet-1-Sour" endpinid="Node-13-0" pointList="-20,-144,-20,-56" />
+
+<item itemtype="Connector" uid="Connector-19" startpinid="Diode-8-rPin" endpinid="Node-14-0" pointList="60,-216,60,-212,116,-212,116,-216" />
+
+<item itemtype="Connector" uid="Connector-20" startpinid="Node-14-2" endpinid="Capacitor-3-lPin" pointList="116,-216,116,-136" />
+
+<item itemtype="Connector" uid="Connector-21" startpinid="Resistor-6-rPin" endpinid="Node-15-1" pointList="212,-76,212,-56,116,-56" />
+
+<item itemtype="Connector" uid="Connector-22" startpinid="Capacitor-3-rPin" endpinid="Node-15-0" pointList="116,-104,116,-56" />
+
+<item itemtype="Connector" uid="Connector-23" startpinid="Node-15-2" endpinid="Node-13-1" pointList="116,-56,-20,-56" />
+
+<item itemtype="Connector" uid="Connector-24" startpinid="Mosfet-1-Gate" endpinid="Uno-9-3" pointList="-44,-160,-172,-160,-172,148,-120,148" />
+
+<item itemtype="Connector" uid="Connector-25" startpinid="Node-16-1" endpinid="Uno-9-GND2" pointList="-192,-56,-192,244,-120,244" />
+
+<item itemtype="Connector" uid="Connector-26" startpinid="Node-13-2" endpinid="Node-16-0" pointList="-20,-56,-192,-56" />
+
+<item itemtype="Connector" uid="Connector-27" startpinid="Node-16-2" endpinid="Battery-7-rPin" pointList="-192,-56,-200,-56,-200,-124,-192,-124" />
+
+<item itemtype="Connector" uid="Connector-35" startpinid="Voltimeter-19-lPin" endpinid="Node-20-1" pointList="248,-264,248,-216,200,-216" />
+
+<item itemtype="Connector" uid="Connector-36" startpinid="Node-14-1" endpinid="Node-20-0" pointList="116,-216,200,-216" />
+
+<item itemtype="Connector" uid="Connector-37" startpinid="Node-20-2" endpinid="Resistor-4-lPin" pointList="200,-216,212,-216,212,-212" />
+
+<item itemtype="Connector" uid="Connector-38" startpinid="Voltimeter-19-rPin" endpinid="Uno-9-GND1" pointList="264,-264,264,196,24,196" />
+
+<item itemtype="Connector" uid="Connector-60" startpinid="Uno-9-A0" endpinid="Node-26-1" pointList="24,164,248,164,248,-152,212,-152" />
+
+<item itemtype="Connector" uid="Connector-61" startpinid="Resistor-4-rPin" endpinid="Node-26-0" pointList="212,-180,212,-152" />
+
+<item itemtype="Connector" uid="Connector-62" startpinid="Node-26-2" endpinid="Resistor-6-lPin" pointList="212,-152,212,-108" />
+
+</circuit>
